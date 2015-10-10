@@ -1,0 +1,23 @@
+{
+  "name": "gulp-pattern",
+  "version": "0.0.0",
+  "description": "todo",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/snslss/gulp-pattern.git"
+  },
+  "keywords": [
+    "gulpplugin",
+    "pattern"
+  ],
+  "author": "Johnny Copperstone <jonnce@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/snslss/gulp-pattern/issues"
+  },
+  "homepage": "https://github.com/snslss/gulp-pattern"
+}
