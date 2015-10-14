@@ -19,5 +19,21 @@
   "bugs": {
     "url": "https://github.com/snslss/gulp-pattern/issues"
   },
-  "homepage": "https://github.com/snslss/gulp-pattern"
+  "homepage": "https://github.com/snslss/gulp-pattern",
+  "dependencies": {
+    "chalk": "^1.1.1",
+    "gulp-help": "^1.6.1",
+    "lodash": "^3.10.1",
+    "q": "^1.4.1",
+    "sync": "^0.2.5",
+    "yargs": "^3.27.0"
+  },
+  "devDependencies": {
+    "gulp-tape": "0.0.4",
+    "gulp-watch": "^4.3.5",
+    "proxyquire": "^1.7.3",
+    "sinon": "^1.17.1",
+    "tap-colorize": "^1.2.0",
+    "tape": "^4.2.1"
+  }
 }

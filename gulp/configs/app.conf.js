@@ -8,5 +8,5 @@ module.exports = {
      * - name for src entry files (js and css)
      */
 
-    name: ''
+    name: 'gulp-pattern'
 };
