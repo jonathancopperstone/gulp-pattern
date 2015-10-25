@@ -21,7 +21,7 @@ Make sure you wrap `gulp` in `gulp-help`. See the [docs](https://github.com/chmo
     var gulp = require('gulp-help')(require('gulp'));
     var args = require('yargs').argv;
 
-This plugin assumes you are following the directory structure [recommended](#understanding-gulp-pattern). This would look like:
+This plugin assumes you are following the directory structure [recommended](#what-is-gulp-pattern). This would look like:
 
     gulp/
         configs/
