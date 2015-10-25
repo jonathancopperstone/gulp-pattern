@@ -2,7 +2,7 @@
 
 A helper gulp plugin you can use to keep your gulp tasks more organised and structured.
 
-https://codeship.com/projects/110273f0-5d97-0133-33ac-3a8f5e5e1065/status?branch=master
+![](https://codeship.com/projects/110273f0-5d97-0133-33ac-3a8f5e5e1065/status?branch=master)
 
 ##### Contents
 
