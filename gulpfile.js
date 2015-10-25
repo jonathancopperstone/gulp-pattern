@@ -1,12 +1,15 @@
 'use strict';
 
-var _       = require('lodash'),
-    fs      = require('fs'),
-    gulp    = require('gulp-help')(require('gulp')),
-    args    = require('yargs').argv,
-    gulpDir = './gulp/',
-    config  = gulpDir + 'configs/app.conf.js',
-    tasks   = fs.readdirSync(gulpDir + 'tasks/'),
-    wflows  = fs.readdirSync(gulpDir + 'workflows/');
+var gulp    = require('gulp-help')(require('gulp')),
+    args    = require('yargs').argv;
 
-    var pattern = require('./src/gulp-pattern').init(gulp, args, config);
+// The main config file for your
+// application.
+
+var config  = require('./gulp/configs/app.conf.js');
+
+// Init the pattern helper to go
+// through your directory and add the
+// gulp tasks and workflows.
+
+require('./src/gulp-pattern').init(gulp, args, config);
