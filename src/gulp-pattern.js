@@ -59,7 +59,16 @@ module.exports = new function() {
 
         gulp.task('list', function() {
 
-            if (tasks) {
+            var printTasks = true,
+                printWorkflows = true;
+
+            if (args.t) {
+                printWorkflows = false;
+            } else if (args.w) {
+                printTasks = false;
+            }
+
+            if (printTasks) {
 
                 console.log('');
                 console.log('');
@@ -74,7 +83,7 @@ module.exports = new function() {
                 });
             }
 
-            if (workflows) {
+            if (printWorkflows) {
 
                 console.log('');
                 console.log('');
