@@ -8,18 +8,31 @@ module.exports = new function() {
         args = require('yargs').argv,
         fs = require('fs'),
         path = require('path'),
+
         pattern = {};
 
-    pattern.init = function(gulp, args, appConfig) {
+    /**
+     * Kick off loading and adding to gulp
+     * both the tasks and workflows.
+     * Add custom gulp task.
+     */
 
+    pattern.init = function(gulp, args, appConfig) {
         var tasksAdded = pattern.addTasks(gulp, args, appConfig);
         var workflowsAdded = pattern.addWorkflows(gulp, args, appConfig);
-        pattern._addHelpTasks(gulp, tasksAdded, workflowsAdded);
+        pattern._addListTask(gulp, tasksAdded, workflowsAdded);
     };
 
-    pattern.addTasks = function(gulp, args, appConfig) {
+    /**
+     * Search for any tasks in the
+     * recommended directory './gulp/tasks'
+     * with the extensions '.tsk.js' and
+     * run each one to add to gulp.
+     */
 
-        var tasks = pattern._getTasks();
+    pattern.addTasks = function(gulp, args, appConfig) {
+        var tasks = fs.readdirSync('./gulp/tasks/');
+        console.log('tasks', tasks);
         _.each(tasks, function(task) {
             var taskBreakdown = task.split('.');
             if (taskBreakdown[1] === 'tsk') {
@@ -32,9 +45,15 @@ module.exports = new function() {
         return _.cloneDeep(gulp.tasks);
     };
 
-    pattern.addWorkflows = function(gulp, args, appConfig) {
+    /**
+     * Search for any workflows in the
+     * recommended directory './gulp/workflows'
+     * with the extensions '.wflow.js' and
+     * run each one to add to gulp.
+     */
 
-        var workflows = pattern._getWorkflows();
+    pattern.addWorkflows = function(gulp, args, appConfig) {
+        var workflows = fs.readdirSync('./gulp/workflows/');
         _.each(workflows, function(workflow) {
             var workflowBreakdown = workflow.split('.');
             if (workflowBreakdown[1] === 'wflow') {
@@ -47,15 +66,18 @@ module.exports = new function() {
         return _.cloneDeep(gulp.tasks);
     };
 
-    pattern._getTasks = function() {
-        return fs.readdirSync('./gulp/tasks/');
-    };
+    /**
+     * Add the `list` gulp tasks, which
+     * prints out a help menu, listing out
+     * all the tasks and workflows, categorised.
+     * The task also accepts flags to specify
+     * either listing just tasks (-t) or just
+     * the workflows (-w)
+     *
+     * @private
+     */
 
-    pattern._getWorkflows = function() {
-        return fs.readdirSync('./gulp/workflows/');
-    };
-
-    pattern._addHelpTasks = function(gulp, tasks, workflows) {
+    pattern._addListTask = function(gulp, tasks, workflows) {
 
         gulp.task('list', function() {
 
