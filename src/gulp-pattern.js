@@ -32,7 +32,6 @@ module.exports = new function() {
 
     pattern.addTasks = function(gulp, args, appConfig) {
         var tasks = fs.readdirSync('./gulp/tasks/');
-        console.log('tasks', tasks);
         _.each(tasks, function(task) {
             var taskBreakdown = task.split('.');
             if (taskBreakdown[1] === 'tsk') {
