@@ -6,8 +6,35 @@ A helper gulp plugin you can use to keep your gulp tasks more organised and stru
 
 ##### Contents
 
+- [Directory Structure](#directory-structure)
 - [Using gulp-pattern](#using-gulp-pattern)
 - [What is gulp-pattern?](#what-is-gulp-pattern)
+
+### Directory structure
+----
+
+All the files which will be used by `gulp` are organised in a `gulp/` folder, in the root of the application. `gulpfile.js` will then be told to look through this folder and look for any tasks and config required for the application.
+
+The directory structure should look like this:
+
+    gulp/
+        tasks/
+        workflows/
+        config/
+
+In `tasks/` you'd expect to find all the individual gulp tasks. Tasks should be as coherent as possible, with each one attempting to do one thing only. If you want to do more than one thing, then you should think about using a workflow.
+
+The naming convention for tasks is **[npm or task name].tsk.js**
+
+In `workflows/` you'd expect to find specific workflows, which calls a group of the the individual tasks, related to that workflow. A workflow should be thought of as a group of tasks, and should be representative of a particular action run against your application.
+
+Naming convention is **[workflow name].wflow.js**
+
+In `config/`, you'll find the config files for the app in general: `app.conf.js`, and other custom config files for specific tasks, like; jshint, stylus.
+
+Naming convention is **app.conf.js**
+
+This config file should ideally be very thin, to limit the amount of config you'd need to remember when writing out your tasks and flows.
 
 ### Using gulp-pattern
 ----
