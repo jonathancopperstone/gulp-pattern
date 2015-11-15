@@ -8,7 +8,7 @@ var gulp    = require('gulp-help')(require('gulp')),
 
 var config  = require('./gulp/configs/app.conf.js');
 
-// Init the pattern helper to go
+// Setup the pattern helper to go
 // through your directory and add the
 // gulp tasks and workflows.
 
