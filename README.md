@@ -47,25 +47,4 @@ This will now go through your tasks and workflows and add them to git. To view t
 ### What is gulp-pattern?
 ----
 
-Gulp tasks are organised in the `gulp/` folder. There is the usual root `gulpfile.js`, which looks through the `gulp/` for the tasks and workflows.
-
-The directory structure:
-
-    gulp/
-        tasks/
-        workflows/
-        config/
-
-In `tasks/` you'd expect to find all the individual gulp tasks. The naming conventions for these tasks is:
-
-    [npm name].tsk.js
-
-In `workflows/` you'd expect to find specific workflows, which calls a group of the the individual tasks, related to that workflow. Naming convention:
-
-    [workflow name].wflow.js
-
-The idea here is to give some structure to the tasks, and make it instantly readable for anyone. The naming of these workflows should represent it's action.
-
-In `config/`, you'll find the config files for the app in general: `appconf.js`, and other custom config files for the tasks. Naming convention:
-
-    app.conf.js
+To understand better what `gulp-pattern` is, and how to use it, check out the [blog post](http://blog.johnnycopperstone.me/gulp-pattern/).
