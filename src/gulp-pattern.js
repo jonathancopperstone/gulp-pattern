@@ -17,7 +17,7 @@ module.exports = new function() {
      * Add custom gulp task.
      */
 
-    pattern.init = function(gulp, args, appConfig) {
+    pattern.setup = function(gulp, args, appConfig) {
         var tasksAdded = pattern.addTasks(gulp, args, appConfig);
         var workflowsAdded = pattern.addWorkflows(gulp, args, appConfig);
         pattern._addListTask(gulp, tasksAdded, workflowsAdded);

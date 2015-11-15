@@ -3,11 +3,14 @@
 module.exports = function(gulp, args) {
 
     var dependencies = [
-        'jshint:src',
-        'tape',
-        'pack',
-        'jshint:index'
+        'jshint'
     ];
+
+    if (args.src || args.s) {
+        dependencies = ['jshint:src'];
+    } else if (args.dist || args.d) {
+        dependencies = ['jshint:dist'];
+    }
 
     gulp.task('vet', dependencies);
 };

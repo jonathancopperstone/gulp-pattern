@@ -10,8 +10,8 @@ tape('module exports an instance', function(test) {
     test.end();
 });
 
-tape('module has init function', function(test) {
-    test.equal(typeof pattern.init, 'function');
+tape('module has setup function', function(test) {
+    test.equal(typeof pattern.setup, 'function');
     test.end();
 });
 

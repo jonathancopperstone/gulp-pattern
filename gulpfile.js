@@ -12,4 +12,4 @@ var config  = require('./gulp/configs/app.conf.js');
 // through your directory and add the
 // gulp tasks and workflows.
 
-require('./src/gulp-pattern').init(gulp, args, config);
+var pattern = require('./src/gulp-pattern').setup(gulp, args, config);
