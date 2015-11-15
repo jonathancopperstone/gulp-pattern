@@ -4,7 +4,6 @@ module.exports = new function() {
 
     var _ = require('lodash'),
         chalk = require('chalk'),
-        q = require('q'),
         args = require('yargs').argv,
         fs = require('fs'),
         path = require('path'),

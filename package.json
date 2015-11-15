@@ -1,18 +1,16 @@
 {
   "name": "gulp-pattern",
   "version": "0.0.0",
-  "description": "todo",
+  "description": "pattern for organising gulp tasks and workflows",
   "main": "index.js",
-  "scripts": {
-    "test": ""
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/johnnycopperstone/gulp-pattern.git"
   },
   "keywords": [
     "gulpplugin",
-    "pattern"
+    "pattern",
+    "workflows"
   ],
   "author": "Johnny Copperstone <jonnce@gmail.com>",
   "license": "MIT",
@@ -25,9 +23,6 @@
     "gulp": "^3.9.0",
     "gulp-help": "^1.6.1",
     "lodash": "^3.10.1",
-    "q": "^1.4.1",
-    "sinon": "^1.17.2",
-    "sync": "^0.2.5",
     "yargs": "^3.27.0"
   },
   "devDependencies": {
