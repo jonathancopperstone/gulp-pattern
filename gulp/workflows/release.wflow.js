@@ -9,5 +9,5 @@ module.exports = function(gulp) {
 
     help = 'build the code for release';
 
-    gulp.task('release', help, dependencies);\
+    gulp.task('release', help, dependencies);
 };
