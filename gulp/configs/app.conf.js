@@ -8,5 +8,19 @@ module.exports = {
      * - name for src entry files (js and css)
      */
 
-    name: 'gulp-pattern'
+    name: 'gulp-pattern',
+
+    /**
+     * Dir where src files
+     * live.
+     */
+
+    src: 'src/',
+
+    /**
+     * Dir where distributables
+     * will live.
+     */
+
+    dist: 'dist/'
 };
