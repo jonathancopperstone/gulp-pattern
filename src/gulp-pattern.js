@@ -92,11 +92,11 @@ module.exports = new function() {
 
                 console.log('');
                 console.log('');
-                console.log(chalk.yellow.bold('list of tasks:'));
-                console.log(chalk.yellow.bold('--------------'));
+                console.log(chalk.blue.bold('list of tasks:'));
+                console.log(chalk.blue.bold('--------------\n'));
 
                 _.each(Object.keys(tasks).sort(), function(name) {
-                    console.log(chalk.white.bold(name));
+                    console.log(chalk.yellow.bold(name));
                     if (tasks[name].help) {
                         console.log('  ' + chalk.gray(tasks[name].help.message));
                     }
@@ -107,22 +107,27 @@ module.exports = new function() {
 
                 console.log('');
                 console.log('');
-                console.log(chalk.yellow.bold('list of workflows:'));
-                console.log(chalk.yellow.bold('------------------'));
+                console.log(chalk.blue.bold('list of workflows:'));
+                console.log(chalk.blue.bold('------------------\n'));
 
                 var workflowNames = _.xor(Object.keys(workflows), Object.keys(tasks));
                 _.each(workflowNames.sort(), function(name) {
-                    console.log(chalk.white.bold(name));
+                    console.log(chalk.yellow.bold(name));
+                    console.log(chalk.gray(workflows[name].help.message));
 
                     if (workflows[name].dep.length > 0) {
                         var end,
-                            deps = ' - ';
+                            deps = ' ';
+
                         _.each(workflows[name].dep, function(dep, i) {
                             end = (workflows[name].dep.length === (i + 1)) ? '.' : ', ';
                             deps = deps + dep + end;
                         });
-                        console.log(chalk.gray(deps));
+
+                        console.log(chalk.white.bold('- tasks run:') + chalk.gray(deps));
                     }
+
+                    console.log('\n');
                 });
             }
 

@@ -93,8 +93,8 @@ module.exports = new function() {
 
                 console.log('');
                 console.log('');
-                console.log(chalk.yellow.bold('list of tasks:'));
-                console.log(chalk.yellow.bold('--------------'));
+                console.log(chalk.magenta.bold('list of tasks:'));
+                console.log(chalk.magenta.bold('--------------'));
 
                 _.each(Object.keys(tasks).sort(), function(name) {
                     console.log(chalk.white.bold(name));
@@ -108,8 +108,8 @@ module.exports = new function() {
 
                 console.log('');
                 console.log('');
-                console.log(chalk.yellow.bold('list of workflows:'));
-                console.log(chalk.yellow.bold('------------------'));
+                console.log(chalk.magenta.bold('list of workflows:'));
+                console.log(chalk.magenta.bold('------------------'));
 
                 var workflowNames = _.xor(Object.keys(workflows), Object.keys(tasks));
                 _.each(workflowNames.sort(), function(name) {
