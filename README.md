@@ -65,7 +65,7 @@ If you want to pass on your app's config to your tasks and workflows, then requi
 
 Now you're all set to let `gulp-pattern` do its job.
 
-    require('gulp-pattern').init(gulp, args, config);
+    require('gulp-pattern').setup(gulp, args, config);
 
 This will now go through your tasks and workflows and add them to git. To view them, hit:
 
