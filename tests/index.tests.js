@@ -3,7 +3,7 @@ var tape = require('tape'),
     args = require('yargs').argv,
     sinon = require('sinon').sandbox.create(),
     proxyquire = require('proxyquire'),
-    pattern = require('../src/gulp-pattern.js');
+    pattern = require('../index.js');
 
 tape('module exports an instance', function(test) {
     test.equal(typeof pattern, 'object');
@@ -28,10 +28,14 @@ tape('module has addWorkflows function', function(test) {
 tape('addTasks adds all tasks to gulp object', function(test) {
 
     var gulp = { task: sinon.spy() },
-        pattern = proxyquire('../src/gulp-pattern', { 'fs': { readdirSync: function() { return ['task1.tsk.js'] } }});
+        pattern = proxyquire('../index', { 'fs': { readdirSync: function() { return ['task1.tsk.js'] } }});
 
     var mockData = 'module.exports = function(gulp) { gulp.task(\'mocktask\'); }';
     fs.writeFile('./gulp/tasks/task1.tsk.js', mockData, function(err) {
+
+        if(err) {
+            console.log(err);
+        }
         pattern.addTasks(gulp, args, {});
         test.equal(gulp.task.called, true);
         test.equal(gulp.task.args[0][0], 'mocktask');
@@ -45,7 +49,7 @@ tape('addTasks adds all tasks to gulp object', function(test) {
 tape('addWorkflows adds all workflows to gulp object', function(test) {
 
     var gulp = { task: sinon.spy() },
-        pattern = proxyquire('../src/gulp-pattern', { 'fs': { readdirSync: function() { return ['wflow1.wflow.js'] } }});
+        pattern = proxyquire('../index', { 'fs': { readdirSync: function() { return ['wflow1.wflow.js'] } }});
 
     var mockData = 'module.exports = function(gulp) { gulp.task(\'mockworkflow\'); }';
     fs.writeFile('./gulp/workflows/wflow1.wflow.js', mockData, function(err) {

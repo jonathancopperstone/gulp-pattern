@@ -9,10 +9,6 @@ module.exports = function(gulp, args) {
 
     if (args.jshint) {
         dependencies = ['jshint'];
-    } else if (args.s || args.src) {
-        dependencies = ['jshint:src'];
-    } else if (args.d || args.dist) {
-        dependencies = ['jshint:dist'];
     }
 
     if (args.a || args.auto) {

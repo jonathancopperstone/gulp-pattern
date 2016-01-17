@@ -4,7 +4,7 @@ module.exports = function(gulp) {
 
     var help,
         dependencies = [
-        'pack'
+        ''
     ];
 
     help = 'build the code for release';

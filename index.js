@@ -30,13 +30,14 @@ module.exports = new function() {
      */
 
     pattern.addTasks = function(gulp, args, appConfig) {
-        var tasks = fs.readdirSync('./gulp/tasks/');
+        var root = process.cwd();
+        var tasks = fs.readdirSync(root + '/gulp/tasks/');
         _.each(tasks, function(task) {
             var taskBreakdown = task.split('.');
             if (taskBreakdown[1] === 'tsk') {
                 var taskName = taskBreakdown[0] + '.' + taskBreakdown[1];
                 require
-                    (path.join(__dirname, '../gulp/tasks/' + taskName))
+                    (root + '/gulp/tasks/' + taskName)
                     (gulp, args, appConfig);
             }
         });
@@ -51,13 +52,14 @@ module.exports = new function() {
      */
 
     pattern.addWorkflows = function(gulp, args, appConfig) {
-        var workflows = fs.readdirSync('./gulp/workflows/');
+        var root = process.cwd();
+        var workflows = fs.readdirSync(root + '/gulp/workflows/');
         _.each(workflows, function(workflow) {
             var workflowBreakdown = workflow.split('.');
             if (workflowBreakdown[1] === 'wflow') {
                 var workflowName = workflowBreakdown[0] + '.' + workflowBreakdown[1];
                 require
-                    (path.join(__dirname, '../gulp/workflows/' + workflowName))
+                    (root + '/gulp/workflows/' + workflowName)
                     (gulp, args, appConfig);
             }
         });
