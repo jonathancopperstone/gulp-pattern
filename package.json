@@ -1,6 +1,6 @@
 {
   "name": "gulp-pattern",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "pattern for organising gulp tasks and workflows",
   "main": "index.js",
   "repository": {
