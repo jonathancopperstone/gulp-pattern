@@ -16,10 +16,10 @@ module.exports = new function() {
      * Add custom gulp task.
      */
 
-    pattern.setup = function(gulp, args, appConfig) {
+    pattern.setup = function(gulp, args, appConfig, patternConfig) {
         var tasksAdded = pattern.addTasks(gulp, args, appConfig);
         var workflowsAdded = pattern.addWorkflows(gulp, args, appConfig);
-        pattern._addListTask(gulp, tasksAdded, workflowsAdded);
+        _addListTask(gulp, tasksAdded, workflowsAdded, patternConfig);
     };
 
     /**
@@ -77,7 +77,7 @@ module.exports = new function() {
      * @private
      */
 
-    pattern._addListTask = function(gulp, tasks, workflows) {
+    var _addListTask = function(gulp, tasks, workflows, patternConfig) {
 
         gulp.task('list', function() {
 
@@ -97,7 +97,15 @@ module.exports = new function() {
                 console.log(chalk.blue.bold('list of tasks:'));
                 console.log(chalk.blue.bold('--------------\n'));
 
-                _.each(Object.keys(tasks).sort(), function(name) {
+                var allTasks = Object.keys(tasks).sort();
+
+                if (patternConfig && patternConfig.tasks && patternConfig.tasks.ignore.length > 0) {
+                    allTasks = allTasks.filter(function(task) {
+                        return patternConfig.tasks.ignore.indexOf(task) === -1;
+                    });
+                }
+
+                _.each(allTasks, function(name) {
                     console.log(chalk.yellow.bold(name));
                     if (tasks[name].help) {
                         console.log('  ' + chalk.gray(tasks[name].help.message));
